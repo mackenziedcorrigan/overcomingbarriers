@@ -2,178 +2,310 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>College Pathways: Barrier Quest (Slideshow)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Build Your Roadmap | College & Career Planning</title>
 <style>
-:root{--bg:#f6f3ee;--surface:#fff;--ink:#1f2937;--muted:#6b7280;--accent:#2f5d8a;--accent2:#e8913a;--line:#e3ddd2;--accent-ink:#fff;--sel:#e7f0f8;
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15191f;--surface:#1f252d;--ink:#eef1f5;--muted:#9aa4b2;--accent:#7fb2e5;--accent2:#f0a85a;--line:#323a45;--accent-ink:#10161d;--sel:#26394d}}
-:root[data-theme="dark"]{--bg:#15191f;--surface:#1f252d;--ink:#eef1f5;--muted:#9aa4b2;--accent:#7fb2e5;--accent2:#f0a85a;--line:#323a45;--accent-ink:#10161d;--sel:#26394d}
+:root{
+  --navy:#07558f; --blue:#176da8; --pale:#dcecf8; --pale2:#eef6fb;
+  --ink:#172b3a; --muted:#536777; --line:#c8d8e4; --paper:#f4f7f9;
+  --white:#fff; --gold:#f2b544; --green:#28744f; --shadow:0 8px 24px rgba(15,55,82,.09);
+}
 *{box-sizing:border-box}
-html,body{height:100%;margin:0}
-body{background:var(--bg);color:var(--ink);font-family:"Segoe UI",system-ui,-apple-system,Helvetica,Arial,sans-serif;line-height:1.5}
-.app{height:100%;display:flex;flex-direction:column;max-width:1040px;margin:0 auto}
-header{padding:14px 20px 6px;display:flex;align-items:center;gap:12px}
-.brand{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700;white-space:nowrap}
-.bar{flex:1;height:6px;background:var(--line);border-radius:6px;overflow:hidden}
-.bar i{display:block;height:100%;width:0;background:var(--accent2);transition:width .35s}
-main{flex:1;overflow:auto;padding:10px 20px 20px;display:flex}
-.slide{margin:auto;width:100%;animation:in .35s ease}
-@keyframes in{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}}
-.eyebrow{color:var(--accent);font-weight:700;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
-h1{font-size:clamp(2rem,6vw,3.4rem);line-height:1.1;margin:.3em 0}
-h2{font-size:clamp(1.5rem,4.5vw,2.3rem);line-height:1.15;margin:.25em 0 .3em}
-p.lead{font-size:1.05rem;color:var(--muted);max-width:68ch;margin:.3em 0}
-.sub{font-size:1.25rem;font-weight:600;margin:.2em 0}
-.hero{text-align:center}.hero .emoji{font-size:3.5rem}.hero p.lead{margin:0 auto}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin-top:16px}
-.chip{background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:14px;text-align:left;cursor:pointer;font:inherit;color:inherit;transition:.15s}
-.chip:hover{border-color:var(--accent)}
-.chip[aria-pressed="true"]{border-color:var(--accent);background:var(--sel)}
-.chip b{display:block;margin:2px 0 4px}.chip span.i{font-size:1.5rem}.chip span.d{font-size:.9rem;color:var(--muted);display:block}
-.count{margin-top:12px;color:var(--muted);font-size:.95rem}
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px;margin-top:16px}
-.flipwrap{display:flex;flex-direction:column;gap:8px}
-.flip{perspective:1000px;background:none;border:0;padding:0;cursor:pointer;font:inherit;color:inherit;text-align:left}
-.in{display:grid}
-.face{grid-area:1/1;border-radius:16px;padding:16px 18px;backface-visibility:hidden;-webkit-backface-visibility:hidden;transition:transform .5s;border:2px solid var(--line);background:var(--surface);min-height:230px;display:flex;flex-direction:column}
-.face.back{transform:rotateY(180deg);background:var(--sel);border-color:var(--accent);font-size:.95rem}
-.flip.on .front{transform:rotateY(-180deg)}.flip.on .back{transform:rotateY(0)}
-.lab{font-size:.7rem;font-weight:800;letter-spacing:.1em;color:var(--accent);margin-bottom:8px}
-.face .hint{font-size:.75rem;color:var(--muted);margin-top:auto;padding-top:10px}
-.face.front p{margin:6px 0 0;font-size:.95rem}
-.save{border:2px solid var(--accent);background:transparent;color:var(--accent);border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;cursor:pointer}
-.save[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 20px 14px}
-.btn{background:var(--accent);color:var(--accent-ink);border:0;border-radius:999px;padding:11px 22px;font:inherit;font-weight:700;cursor:pointer}
-.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--line)}
-.btn:disabled{opacity:.35;cursor:not-allowed}
-.dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
-.dots i{width:9px;height:9px;border-radius:50%;background:var(--line)}.dots i.on{background:var(--accent2)}
-.sum{margin-top:12px;display:grid;gap:10px}
-.sum div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
-.sum small{color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
-.empty{color:var(--muted);font-style:italic}
-:focus-visible{outline:3px solid var(--accent2);outline-offset:2px}
-@media (max-width:520px){.dots{display:none}}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 "Segoe UI",Arial,sans-serif}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+.app{max-width:1160px;min-height:100vh;margin:auto;display:flex;flex-direction:column}
+header{background:var(--navy);color:white;padding:15px 22px;display:flex;align-items:center;gap:16px}
+.brand{font-size:.78rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase;white-space:nowrap}
+.progress-wrap{flex:1;display:flex;align-items:center;gap:10px}
+.progress{height:8px;background:rgba(255,255,255,.25);border-radius:99px;overflow:hidden;flex:1}
+.progress i{display:block;height:100%;width:0;background:var(--gold);transition:width .25s}
+#stepLabel{font-size:.8rem;white-space:nowrap}
+main{padding:24px 22px 30px;flex:1}
+.slide{animation:appear .22s ease}
+@keyframes appear{from{opacity:.4;transform:translateY(7px)}to{opacity:1;transform:none}}
+.eyebrow{color:var(--blue);font-size:.78rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.08;margin:.25em 0}
+h2{font-size:clamp(1.55rem,3vw,2.35rem);line-height:1.15;margin:.25em 0 .4em}
+h3{margin:.2em 0 .45em}
+.lead{color:var(--muted);max-width:76ch;font-size:1.04rem}
+.hero{text-align:center;padding:32px 12px}
+.hero .road-icon{font-size:3.5rem}
+.hero .lead{margin:12px auto}
+.panel{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--shadow)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:13px;margin:18px 0}
+.choice{border:2px solid var(--line);background:white;border-radius:14px;padding:16px;text-align:left;color:var(--ink);min-height:116px;transition:.15s}
+.choice:hover,.choice[aria-pressed=true]{border-color:var(--blue);background:var(--pale2)}
+.choice[aria-pressed=true]{box-shadow:inset 0 0 0 1px var(--blue)}
+.choice .emoji{font-size:1.55rem;display:block}
+.choice strong{display:block;margin:5px 0}
+.choice small{display:block;color:var(--muted)}
+.pill{display:inline-block;background:var(--pale);color:var(--navy);border-radius:99px;padding:4px 10px;font-size:.78rem;font-weight:800}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:18px}
+.strategy{background:white;border:1px solid var(--line);border-radius:15px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.strategy .description{color:var(--muted);font-size:.94rem}
+.strategy .help{background:var(--pale2);border-left:4px solid var(--blue);padding:10px 12px;border-radius:7px;font-size:.92rem}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}
+.btn{border:0;border-radius:999px;background:var(--navy);color:white;padding:11px 19px;font-weight:750}
+.btn:hover{background:var(--blue)}
+.btn.secondary{background:white;color:var(--navy);border:2px solid var(--line)}
+.btn.secondary:hover{border-color:var(--blue);background:var(--pale2)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+footer{padding:14px 22px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid var(--line)}
+.footer-note{color:var(--muted);font-size:.85rem}
+.goal-summary{background:var(--pale2);border:1px solid var(--line);padding:13px 16px;border-radius:12px;margin:14px 0}
+.roadmap-layout{display:grid;grid-template-columns:minmax(260px,.9fr) minmax(360px,1.4fr);gap:18px;align-items:start;margin-top:18px}
+.option-group{background:white;border:1px solid var(--line);border-radius:15px;padding:15px;margin-bottom:12px}
+.option-group h3{font-size:1rem;color:var(--navy)}
+.option-list{display:grid;gap:8px}
+.drag-option{display:flex;align-items:flex-start;gap:9px;border:1px solid var(--line);border-radius:10px;padding:10px;background:#fff}
+.drag-option[draggable=true]{cursor:grab}
+.drag-option .opt-text{flex:1;font-size:.91rem}
+.drag-option small{display:block;color:var(--muted)}
+.add-btn{border:1px solid var(--blue);background:var(--pale2);color:var(--navy);border-radius:99px;padding:5px 10px;font-size:.8rem;font-weight:700;white-space:nowrap}
+.roadmap{background:white;border:2px dashed #8eafc7;border-radius:17px;padding:16px;min-height:260px}
+.roadmap.over{background:var(--pale2);border-color:var(--blue)}
+.roadmap-head{display:flex;justify-content:space-between;gap:10px;align-items:center;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:12px}
+.roadmap-head h3{margin:0;color:var(--navy)}
+.drop-hint{font-size:.82rem;color:var(--muted)}
+.roadmap-items{display:grid;gap:10px}
+.road-item{display:grid;grid-template-columns:32px 1fr auto;gap:10px;align-items:start;border:1px solid var(--line);border-radius:12px;padding:11px;background:#fff}
+.road-item .number{width:29px;height:29px;border-radius:50%;background:var(--navy);color:white;display:grid;place-items:center;font-weight:800}
+.road-item input{width:100%;border:0;border-bottom:1px solid var(--line);padding:3px 0;color:var(--ink);font-weight:700;background:transparent}
+.road-item textarea{width:100%;border:1px solid var(--line);border-radius:8px;padding:7px;margin-top:7px;resize:vertical;min-height:52px}
+.remove{border:0;background:transparent;color:#7a3d3d;font-size:1.1rem;padding:2px 6px}
+.reflection{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.reflection label{display:block;font-weight:750;color:var(--navy);margin-bottom:5px}
+.reflection textarea{width:100%;min-height:88px;border:1px solid var(--line);border-radius:10px;padding:10px;resize:vertical}
+.empty{color:var(--muted);font-style:italic;text-align:center;padding:30px 10px}
+.summary-list{display:grid;gap:10px;margin-top:15px}
+.summary-card{background:white;border:1px solid var(--line);border-radius:12px;padding:13px}
+.summary-card b{color:var(--navy)}
+.notice{background:#fff8e7;border-left:4px solid var(--gold);padding:11px 13px;border-radius:8px;color:#59451c;font-size:.9rem;margin:12px 0}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+@media(max-width:760px){.roadmap-layout{grid-template-columns:1fr}.reflection{grid-template-columns:1fr}header{flex-wrap:wrap}.brand{width:100%}#stepLabel{display:none}}
+@media print{header,footer,.no-print{display:none!important}body{background:white}.app{max-width:none}main{padding:0}.panel,.roadmap{box-shadow:none}}
+
+/* Completed roadmap: illustrated journey-map aesthetic */
+.map-poster{
+  position:relative;overflow:hidden;margin:22px 0;padding:clamp(18px,3vw,34px);
+  border:2px solid #b9cbbd;border-radius:24px;
+  background-color:#f4f1df;
+  background-image:
+    radial-gradient(ellipse at 15% 18%,rgba(117,157,119,.13) 0 10%,transparent 10.5%),
+    radial-gradient(ellipse at 82% 22%,rgba(117,157,119,.13) 0 12%,transparent 12.5%),
+    radial-gradient(ellipse at 22% 82%,rgba(117,157,119,.12) 0 13%,transparent 13.5%),
+    linear-gradient(28deg,transparent 48%,rgba(174,190,159,.18) 49%,rgba(174,190,159,.18) 50%,transparent 51%),
+    linear-gradient(145deg,transparent 48%,rgba(174,190,159,.15) 49%,rgba(174,190,159,.15) 50%,transparent 51%);
+  box-shadow:0 12px 28px rgba(43,69,52,.12);
+}
+.map-poster:before,.map-poster:after{
+  content:"";position:absolute;border:1px solid rgba(111,145,112,.22);
+  border-radius:50%;pointer-events:none
+}
+.map-poster:before{width:280px;height:180px;right:-90px;top:90px;transform:rotate(-24deg)}
+.map-poster:after{width:250px;height:160px;left:-95px;bottom:35px;transform:rotate(18deg)}
+.map-topline{position:relative;z-index:1;display:flex;justify-content:space-between;gap:14px;align-items:flex-start;flex-wrap:wrap;border-bottom:2px dashed #b5c4aa;padding-bottom:16px}
+.map-kicker{font-size:.75rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:#54735b}
+.map-destination{font-family:Georgia,serif;font-size:clamp(1.7rem,4vw,2.5rem);line-height:1.08;color:#234b38;margin:5px 0}
+.map-meta{color:#536b57;font-size:.9rem}
+.compass{width:66px;height:66px;flex:0 0 66px;border:2px solid #8da58b;border-radius:50%;display:grid;place-items:center;color:#42664b;background:rgba(255,255,255,.45);font-size:1.8rem}
+.route-map{position:relative;z-index:1;max-width:780px;margin:24px auto 12px;padding:6px 0}
+.route-map:before{
+  content:"";position:absolute;left:27px;top:30px;bottom:35px;width:8px;
+  border-radius:10px;background:#d5b66e;box-shadow:0 0 0 4px rgba(255,255,255,.55)
+}
+.route-map:after{
+  content:"";position:absolute;left:30px;top:30px;bottom:35px;border-left:2px dashed #fff8df
+}
+.route-stop{position:relative;display:grid;grid-template-columns:58px minmax(0,1fr);gap:13px;margin:0 0 17px;align-items:start}
+.route-pin{position:relative;z-index:2;width:48px;height:48px;border:4px solid #f4f1df;border-radius:50%;display:grid;place-items:center;background:#2f6848;color:#fff;font-weight:900;font-size:1.05rem;box-shadow:0 2px 5px rgba(0,0,0,.18)}
+.route-card{background:rgba(255,255,255,.91);border:1px solid #c8d3bd;border-radius:14px;padding:13px 16px;box-shadow:0 3px 8px rgba(44,72,51,.07)}
+.route-card h3{font-family:Georgia,serif;color:#244c38;font-size:1.12rem;margin:0 0 5px}
+.route-card p{margin:5px 0;color:#43594a;font-size:.93rem}
+.route-card .route-when{display:inline-block;margin-top:6px;background:#e7efdf;color:#385d40;border-radius:99px;padding:4px 10px;font-size:.78rem;font-weight:800}
+.route-card .route-why{border-left:3px solid #d5b66e;padding-left:9px;margin-top:8px}
+.route-start,.route-finish{position:relative;z-index:2;display:flex;align-items:center;gap:12px;margin:0 0 18px;color:#244c38;font-weight:900}
+.route-start .flag,.route-finish .flag{width:54px;height:54px;display:grid;place-items:center;border-radius:15px;background:#2f6848;color:white;font-size:1.6rem;box-shadow:0 3px 7px rgba(0,0,0,.16)}
+.route-finish .flag{background:#285c91}
+.route-label{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#67816a}
+.map-reflections{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:22px}
+.map-reflection{background:rgba(255,255,255,.78);border:1px dashed #9eb39a;border-radius:14px;padding:14px}
+.map-reflection b{display:block;color:#315a3d;margin-bottom:5px}
+.map-reflection p{margin:0;color:#43594a}
+.map-legend{position:relative;z-index:1;display:flex;gap:18px;flex-wrap:wrap;margin-top:18px;color:#5b705d;font-size:.8rem}
+.map-legend span{display:flex;align-items:center;gap:6px}
+.map-legend i{width:10px;height:10px;border-radius:50%;background:#2f6848;display:inline-block}
+.map-legend span:last-child i{background:#285c91}
+@media(max-width:600px){.map-reflections{grid-template-columns:1fr}.map-poster{padding:16px}.route-stop{grid-template-columns:50px minmax(0,1fr);gap:8px}.route-pin{width:42px;height:42px}}
+@media print{
+  .map-poster{break-inside:avoid;box-shadow:none;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .route-stop,.map-reflection{break-inside:avoid}
+}
+
 </style>
 </head>
 <body>
 <div class="app">
-  <header><div class="brand">Module 7 · Overcoming Barriers</div><div class="bar"><i id="prog"></i></div></header>
-  <main><div id="slide" class="slide"></div></main>
-  <footer>
-    <button class="btn ghost" id="prev">← Back</button>
-    <div class="dots" id="dots"></div>
-    <button class="btn" id="next">Next →</button>
-  </footer>
+<header>
+  <div class="brand">College & Career Pathways · Your Next Steps</div>
+  <div class="progress-wrap"><div class="progress"><i id="progressBar"></i></div><span id="stepLabel">Step 1 of 5</span></div>
+</header>
+<main><div id="slide" class="slide"></div></main>
+<footer>
+  <button class="btn secondary" id="back">← Back</button>
+  <span class="footer-note" id="footerNote">Your choices are saved in this browser.</span>
+  <button class="btn" id="next">Start building →</button>
+</footer>
 </div>
 <script>
 var DATA=[
-{id:"cost",i:"💰",n:"Paying for College",b:"Tuition, books, housing, and everyday costs feel overwhelming.",s:[
-["Explore scholarships.","Start looking for scholarships available, including local, state, and national opportunities.","Scholarships can help pay for tuition, books, housing, and other college expenses. Some scholarships are available before senior year, so starting early gives you more time to find opportunities or time to prepare yourself to apply next year."],
-["Learn about FAFSA and financial aid.","Ask a school counselor or trusted adult to explain grants, work-study, loans, and the FAFSA (Free Application for Federal Student Aid).","Financial aid can make college more affordable. Understanding the different types of aid can help you identify money you may qualify for that doesn’t have to be repaid."],
-["Compare college costs.","Research tuition, fees, housing, and other expenses at different colleges. Look at community colleges and public universities too.","The cost of college varies widely. Comparing options can help you find a school that fits your academic goals and financial situation."],
-["Consider different pathways to a degree.","Explore starting at a community college, participating in dual enrollment, or transferring to a four-year university later.","You may be able to earn college credits or complete part of your degree at a lower cost without giving up your goal of earning a bachelor’s degree."],
-["Talk with a financial aid advisor.","Contact a college financial aid office or ask your school counselor to help you understand your options.","Financial aid can be confusing. An advisor can explain available resources and help you understand what college might actually cost after financial assistance."]]},
-{id:"ready",i:"📚",n:"Feeling Ready Academically",b:"You’re unsure if your grades, skills, or study habits are enough.",s:[
-["Meet with your school counselor.","Review your transcript and graduation requirements together. Ask whether you’re on track for the colleges or programs you’re interested in.","You’ll have a better understanding of where you stand academically and what classes or credits you may still need."],
-["Take advantage of tutoring.","Ask teachers about tutoring, study groups, after-school help, or online academic resources.","Getting help now can strengthen your understanding of the challenging subjects before you begin college-level coursework."],
-["Utilize college readiness programs.","Lean into resources and services available to you through GEAR UP or other college preparation opportunities.","These programs provide academic support, mentoring, college preparation activities, and opportunities to experience college."],
-["Build stronger study habits.","Practice creating a study schedule, breaking assignments into smaller tasks, and preparing for tests ahead of time.","College often requires more independent learning. Developing these habits now can make the transition from high school to college easier."],
-["Explore dual enrollment or college-level courses.","Ask your counselor whether you can take a college course while still in high school.","Taking a college-level course can help you experience the expectations of college academics while having access to support from your high school."]]},
-{id:"time",i:"⏱️",n:"Balancing Time & Responsibilities",b:"Work, family, caregiving, or other commitments compete with school.",s:[
-["Create a weekly schedule.","Map out your schoolwork, job, extracurricular activities, family responsibilities, and personal time.","Seeing how you spend your time can help you identify opportunities to make college preparation more manageable and recognize where you may need support."],
-["Explore flexible college options.","Research online classes, part-time enrollment, evening courses, or colleges with flexible schedules.","College doesn’t have to be the same for everyone. Flexible options may allow you to continue working or managing other responsibilities while earning a degree."],
-["Learn about campus support services.","Research academic advising, tutoring, and other student support services at colleges you’re considering.","Colleges may offer resources that help students balance academics with responsibilities outside the classroom."],
-["Start preparing now in small steps.","Set aside 15-30 minutes each week to research colleges, explore scholarships, or work on college preparation tasks.","Breaking big tasks into smaller steps can make the college planning process feel less overwhelming, especially when you have a busy schedule."],
-["Talk with someone you trust.","Discuss your responsibilities and college goals with a counselor, teacher, family member, or mentor.","Someone who understands your situation may help you identify resources, find solutions, or adjust your plans so college feels more manageable."]]},
-{id:"fit",i:"🧭",n:"Knowing Where I Fit",b:"College feels unfamiliar, intimidating, or like it may not be for people like me.",s:[
-["Explore different college environments.","Research community colleges, technical schools, public universities, private colleges, and historically Black colleges and universities (HBCUs).","Different schools offer different experiences, programs, sizes, and campus environments. Exploring options can help you discover what feels right for you."],
-["Take a career interest assessment.","Ask your counselor about career inventories or online assessments that connect your interests and strengths to possible careers.","Learning more about your interests can help you identify potential career paths and college programs worth exploring."],
-["Visit a college campus.","Attend a campus tour, college fair, open house, or virtual tour.","Seeing a campus and learning about student life can help you picture yourself in college and determine what kind of environment you prefer."],
-["Talk to current college students.","Ask recent graduates, college ambassadors, or mentors about their experiences.","Hearing from students can give you a realistic picture of college life, including what they enjoy, what surprised them, and what they wish they had known."],
-["Explore student organizations and support communities.","Research clubs, cultural organizations, first-generation student programs, and other campus communities.","Finding people with shared interests or experiences can help you feel connected and supported on campus."]]},
-{id:"app",i:"📝",n:"The Application Process",b:"Deadlines, forms, choosing a school, or asking for help feels confusing.",s:[
-["Make a college application checklist.","Write down important application deadlines, required documents, test dates, and other tasks.","A checklist helps you stay organized and prevents important steps from being overlooked when application season arrives."],
-["Meet with your school counselor.","Ask about application requirements, college admissions, transcripts, recommendation letters, and deadlines.","Your counselor can help explain the process and connect you with resources to complete each step."],
-["Research college admission requirements.","Visit college websites to learn about GPA expectations, entrance exams, essays, and application fees.","Knowing what colleges expect gives you time to prepare and address any missing requirements before senior year."],
-["Start building your college resume.","Keep track of extracurricular activities, volunteer work, jobs, awards, leadership experiences, and accomplishments.","Having this information organized now can make completing applications and writing essays much easier later."],
-["Explore application fee waivers.","Ask your counselor or colleges about fee waiver opportunities.","Application fees can add up. Fee waivers may allow you to apply to colleges without paying the standard application fee if you qualify."]]},
-{id:"campus",i:"🚌",n:"Getting to Campus",b:"Transportation, distance, or access to reliable internet may be a challenge.",s:[
-["Research colleges close to home.","Look into nearby community colleges, universities, and technical schools.","Attending a college closer to home may reduce transportation costs and make it easier to maintain family or work responsibilities."],
-["Explore campus transportation options.","Research public transportation, campus shuttles, carpooling, or student transportation programs.","Many colleges offer transportation options that can make commuting easier and less expensive."],
-["Look into residential colleges.","Research campus housing, residence halls, and housing assistance opportunities.","Living on campus may eliminate the need to commute every day, although housing costs and availability should be considered."],
-["Explore online or hybrid programs.","Look for degree programs that offer online classes or a combination of online and in-person learning.","These options may allow you to attend college without traveling to campus every day."],
-["Ask about transportation assistance.","Contact college admissions offices or student support programs to ask about transportation resources.","Some colleges and community organizations may offer assistance or connect students with transportation resources they otherwise wouldn’t know about."]]},
-{id:"conf",i:"💪",n:"Confidence & Motivation",b:"You worry about failing, making the wrong choice, or not being able to finish.",s:[
-["Connect with a college student or mentor.","Talk with someone who has attended college, especially someone with a similar background or experience.","Hearing about someone else’s journey can help you realize that college students have different paths, challenges, and starting points."],
-["Set a small college-related goal.","For example, research one college this week, attend a college fair, or talk to your counselor.","Accomplishing smaller goals can build confidence and help you see that preparing for college is something you can do one step at a time."],
-["Learn about first-generation college students.","Explore stories and resources from students who are the first in their families to attend college.","You may discover that many students begin college without knowing exactly what to expect. You don’t need to have everything figured out before you start."],
-["Explore college support programs","Research mentoring, tutoring, academic advising, first-generation student services, and college access programs.","Knowing that support is available can make college feel less intimidating and help you understand that you won’t have to navigate everything alone."],
-["Celebrate your progress.","Recognize the academic, personal, and extracurricular accomplishments you’ve already achieved.","Reflecting on what you’ve accomplished can remind you of your strengths and help you recognize that you already have skills that can contribute to your success in college."]]},
-{id:"family",i:"👪",n:"Family or Support Concerns",b:"People around you may not understand your goal or how college would affect them.",s:[
-["Have a conversation with your family.","Share why you’re interested in college, what you hope to accomplish, and what questions or concerns they may have.","Open communication can help your family better understand your goals and give everyone an opportunity to discuss concerns and possible solutions."],
-["Find a trusted adult or mentor.","Connect with a teacher, school counselor, coach, family friend, or college access advisor.","You don’t have to have someone in your family who understands the college process. A trusted adult can help answer questions, provide encouragement, and guide you through important decisions."],
-["Explore family-friendly college resources.","Look for college information sessions, family workshops, and resources explaining financial aid, college costs, and the admissions process.","Providing your family with accurate information can help address misconceptions and make them feel more comfortable supporting your college plans."],
-["Research colleges that fit your family needs.","Consider schools close to home, commuter options, online programs, and flexible schedules.","You may be able to find a college experience that allows you to pursue your education while staying connected to your family and maintaining important responsibilities."],
-["Connect with other students and families.","Participate in college preparation programs, student groups, or family college nights.","Connecting with others who are navigating similar experiences can help you and your family feel less alone and learn from people who have been through the process."]]},
-{id:"career",i:"🔍",n:"Career Uncertainty",b:"You are unsure of what career path you may want to pursue.",s:[
-["Take a career interest assessment.","Ask your school counselor about career assessments that connect your interests, strengths, and personality to potential careers.","You may discover career paths you haven’t considered before. Assessments can give you a starting point for exploring careers that align with what you enjoy and what you’re good at."],
-["Explore different career paths.","Research careers that interest you, including what people do in those jobs, how much they earn, and what education or training they need.","Learning about different careers can help you understand the opportunities available and determine which ones might fit your interests, goals, and lifestyle."],
-["Talk to people who work in careers that interest you.","Ask teachers, family members, community professionals, or mentors about their jobs and how they got started.","Hearing firsthand experiences can help you understand what a career is really like, what skills are needed, and what steps you could take to pursue it."],
-["Explore college majors and programs.","Research college degree programs, technical programs, and certifications that connect to your interests.","You may discover that one area of interest can lead to several different career opportunities. You can also learn which education pathways are available without having to commit to a specific career right away."],
-["Get hands-on experience.","Look for job shadowing opportunities, internships, volunteer experiences, career fairs, or career and technical education (CTE) programs.","Experiencing a career firsthand can help you determine whether you enjoy the work. It can also introduce you to new interests and help you build valuable skills."]]}
+{id:"academic",i:"📚",n:"Academic",b:"You may be unsure whether your grades, skills, preparation, or knowledge of next steps will help you reach your goal.",s:[
+["Review your academic progress.","Meet with your school counselor to review your transcript, graduation requirements, current grades, and any entry requirements for your preferred pathway.","You can see what you have already accomplished and identify classes, credits, or skills to strengthen before your next step."],
+["Build stronger study and learning habits.","Create a study schedule, break assignments into smaller tasks, ask questions, and prepare for tests ahead of time.","Practicing these habits now can help you become a more independent learner and feel better prepared for college or career training."],
+["Use tutoring and college-readiness support.","Ask teachers about tutoring, study groups, after-school help, online resources, or GEAR UP and other college-readiness programs.","Getting support early can strengthen challenging skills and connect you with people and resources that can help you succeed."],
+["Explore academic and career pathways.","Research majors, career fields, technical programs, certifications, and the education or training each requires. Consider a career interest assessment.","Exploring possibilities can help you connect your interests and strengths to a pathway without needing to have your entire future figured out."],
+["Prepare for applications, placement, or entrance requirements.","Find out whether your pathway requires an application, essay, transcript, placement test, ACT/SAT score, ASVAB, or other materials. Make a checklist of what applies to you.","Knowing the requirements early gives you time to prepare, ask questions, and avoid last-minute surprises."]
+]},
+{id:"financial",i:"💰",n:"Financial",b:"The cost of education or training—including tuition, fees, books, housing, transportation, and everyday expenses—may feel overwhelming.",s:[
+["Explore scholarships and other funding opportunities.","Look for local, state, and national scholarships, grants, and education or training assistance. Keep track of eligibility requirements and deadlines.","Finding funding opportunities early gives you more time to prepare applications and may reduce the amount you need to pay yourself."],
+["Learn about FAFSA and financial aid.","Ask a school counselor or trusted adult to explain the FAFSA (Free Application for Federal Student Aid), grants, work-study, and loans.","Understanding the types of aid available can help you identify funding you may qualify for, including grants that generally do not need to be repaid."],
+["Compare the full cost of different pathways.","Research tuition, fees, books, supplies, housing, transportation, and other costs at colleges or training programs you are considering.","Comparing total costs—not just tuition—can help you find an option that fits your goals and financial situation."],
+["Talk with a financial aid or program advisor.","Contact a college financial aid office, career technology center, or program representative. Ask what assistance is available and what costs to expect.","An advisor can explain funding options, payment timelines, and resources that may make your chosen pathway more affordable."],
+["Explore lower-cost or flexible pathways.","Consider community college, dual enrollment, transfer options, scholarships, employer-supported training, or programs that let you live at home while studying.","There may be several ways to reach a similar education or career goal. Exploring alternatives can help you manage costs without giving up on your plans."]
+]},
+{id:"support",i:"🤝",n:"Support",b:"You may need help navigating the process, balancing responsibilities, finding a sense of belonging, or getting encouragement from people around you.",s:[
+["Connect with a trusted adult, counselor, or mentor.","Talk with a teacher, school counselor, coach, family member, or college and career advisor about your goal and questions.","You do not have to figure everything out alone. A trusted person can help you find information, work through challenges, and stay encouraged."],
+["Talk with your family or support network.","Share what you are considering, why it matters to you, and what questions or concerns your family or support network may have.","Open conversations can help the people around you understand your plans and identify ways they can support your next steps."],
+["Explore support services and communities.","Research tutoring, academic advising, mentoring, first-generation student programs, student organizations, family workshops, and other support services offered by schools or programs.","Knowing where to find help and connection can make a new environment feel more welcoming and help you navigate challenges."],
+["Make a plan for time, transportation, and other responsibilities.","Map out school, work, family responsibilities, transportation, and personal time. Ask about flexible schedules, online options, campus transportation, or other assistance.","Planning around your responsibilities can help make your goal feel more manageable and show you where you may need additional support."],
+["Visit, ask questions, and learn from others.","Attend a campus or program tour, college fair, open house, virtual visit, or talk with current students and people working in careers that interest you.","Hearing about other people's experiences and seeing a place for yourself can help you decide what feels right and picture yourself taking the next step."]
+]}
 ];
-var sel=[],saved=[],deck=[],pos=0;
-try{var s=JSON.parse(localStorage.getItem("bq2_saved")||"[]");if(Array.isArray(s))saved=s}catch(e){}
-try{var t=JSON.parse(localStorage.getItem("bq2_sel")||"[]");if(Array.isArray(t))sel=t}catch(e){}
-function persist(){try{localStorage.setItem("bq2_saved",JSON.stringify(saved));localStorage.setItem("bq2_sel",JSON.stringify(sel))}catch(e){}}
-function byId(id){return DATA.filter(function(d){return d.id===id})[0]}
-function buildDeck(){deck=[{k:"intro"},{k:"pick"}];DATA.forEach(function(x){if(sel.indexOf(x.id)>-1)deck.push({k:"barrier",id:x.id})});deck.push({k:"sum"})}
-function esc(x){return String(x).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
-function slideHtml(d){
- if(d.k==="intro")return '<div class="hero"><div class="emoji">🎓</div><div class="eyebrow">Explore • Choose • Save</div><h1>Explore your future.<br>Find your pathway.</h1><p class="lead">Explore common barriers that can make going to college feel challenging. Choose the ones that might affect you, flip through possible solutions, and save ideas you want to remember for your future roadmap.</p></div>';
- if(d.k==="pick"){var g=DATA.map(function(x){return '<button class="chip" data-id="'+x.id+'" aria-pressed="'+(sel.indexOf(x.id)>-1)+'"><span class="i">'+x.i+'</span><b>'+esc(x.n)+'</b><span class="d">'+esc(x.b)+'</span></button>'}).join("");
-  return '<div class="eyebrow">Step 1: Pick your Roadblocks</div><h2>What could get in your way?</h2><p class="lead"><b>Select any barriers that feel relevant to going to college.</b></p><div class="grid">'+g+'</div><div class="count" id="count">'+sel.length+' selected</div>'}
- if(d.k==="barrier"){var x=byId(d.id);var c=x.s.map(function(y,n){var key=x.id+":"+n,on=saved.indexOf(key)>-1;
-  return '<div class="flipwrap"><button class="flip" aria-label="Flip card: '+esc(y[0])+'"><div class="in"><div class="face front"><div class="lab">POSSIBLE SOLUTIONS</div><b>'+esc(y[0])+'</b><p>'+esc(y[1])+'</p><div class="hint">Tap to flip ↻</div></div><div class="face back"><div class="lab">HOW IT COULD HELP</div>'+esc(y[2])+'</div></div></button><button class="save" data-key="'+key+'" aria-pressed="'+on+'">'+(on?"★ Saved":"☆ Save idea")+'</button></div>'}).join("");
-  return '<div class="eyebrow">Step 2: Explore Your Options</div><h2>'+x.i+' '+esc(x.n)+'</h2><div class="sub">Small steps can open big doors.</div><p class="lead"><b>Flip each card to see how an idea might help with the barrier. Save the strategies that feel useful so you can revisit them as you build your roadmap later.</b></p><div class="cards">'+c+'</div>'}
- var h=saved.length?"":'<p class="empty">Nothing saved yet. Go back and tap “Save idea” on a card.</p>';
- var rows=saved.map(function(k){var p=k.split(":"),x=byId(p[0]);if(!x||!x.s[p[1]])return"";return '<div><small>'+esc(x.n)+'</small><br><b>'+esc(x.s[p[1]][0])+'</b> '+esc(x.s[p[1]][1])+'</div>'}).join("");
- return '<div class="eyebrow">Your solution board</div><h2>Keep the ideas that fit.</h2><p class="lead">Your saved solutions are a collection of possibilities, not a commitment. Later, you can decide which ones belong on your college roadmap.</p>'+h+'<div class="sum">'+rows+'</div><p style="margin-top:14px"><button class="btn ghost" id="clear">Clear saved ideas</button> <button class="btn ghost" id="restart">Start over</button></p>'}
-function show(){
- var el=document.getElementById("slide"),d=deck[pos];
- el.style.animation="none";void el.offsetWidth;el.style.animation="";
- el.innerHTML=slideHtml(d);
- document.getElementById("prog").style.width=((pos+1)/deck.length*100)+"%";
- document.getElementById("dots").innerHTML=deck.map(function(_,i){return '<i class="'+(i===pos?"on":"")+'"></i>'}).join("");
- var p=document.getElementById("prev"),n=document.getElementById("next");
- p.disabled=pos===0;n.disabled=(d.k==="pick"&&sel.length===0);
- n.textContent=d.k==="intro"?"Start →":d.k==="pick"?"Explore solutions →":"Next →";
- n.style.visibility=pos===deck.length-1?"hidden":"visible";
- document.querySelector("main").scrollTop=0;
+var GOALS=[
+ {id:"university",icon:"🏛️",name:"University",desc:"A four-year institution after high school.",example:"Example: University of Oklahoma"},
+ {id:"college",icon:"🎓",name:"College",desc:"A two-year institution.",example:"Example: Oklahoma City Community College"},
+ {id:"careertech",icon:"🛠️",name:"Career Tech",desc:"A job-specific career and technical program.",example:"Example: Metro Tech, Francis Tuttle"},
+ {id:"military",icon:"🫡",name:"Military",desc:"Enlisting in a branch of the military.",example:"Example: Army, Air Force, Navy"}
+];
+var COMMON=[
+ ["Meet with your school counselor","Set up a meeting to discuss your plans, important dates, and what you should do next.","A counselor can help you turn a big goal into manageable next steps."],
+ ["Explore programs and entry requirements","Compare the requirements, training, costs, and timelines for programs or pathways that interest you.","Knowing what is expected gives you time to prepare and make an informed choice."],
+ ["Take the ACT or SAT, if required or useful","Ask your counselor or the programs you are considering whether an entrance exam is needed. If it is, choose a test date and make a preparation plan.","Planning ahead gives you time to prepare, take the test, and understand whether scores are part of your pathway."],
+ ["Create a calendar of important dates","Record application or enlistment milestones, test dates, financial aid dates, visits, and follow-up tasks.","A calendar helps you keep track of deadlines and see what needs attention first."],
+ ["Talk with a trusted adult or mentor","Share your goal and ask someone you trust to help you think through questions or next steps.","Support from another person can help you stay encouraged and work through challenges."]
+];
+var GOAL_OPTIONS={
+ university:[
+ ["Research university programs and admission requirements","Explore majors, GPA expectations, entrance requirements, and application materials at universities you may consider.","You can identify requirements early and choose steps that strengthen your preparation."],
+ ["Plan a campus visit or virtual tour","Find a campus tour, open house, college fair, or virtual visit.","Experiencing a campus can help you picture yourself there and decide what environment fits."],
+ ["Draft ideas for an application essay","Make a list of experiences, interests, accomplishments, or goals you may want to write about.","Starting early gives you time to reflect, get feedback, and revise."]
+ ],
+ college:[
+ ["Compare two-year college programs","Explore certificates, associate degrees, transfer pathways, and programs connected to your interests.","You can see how a two-year college could help you reach education or career goals."],
+ ["Ask about placement and enrollment steps","Contact the college or counselor to learn about placement tests, orientation, advising, and enrollment documents.","Understanding the process helps you know what to complete before classes begin."],
+ ["Explore transfer options","If you may want a bachelor's degree later, ask about transfer agreements and course pathways.","Planning ahead can help you choose courses that count toward a future degree."]
+ ],
+ careertech:[
+ ["Explore career technology programs","Compare programs, hands-on learning opportunities, schedules, costs, and entry requirements.","You can connect your interests to a specific training opportunity and understand how to get started."],
+ ["Ask about certifications and industry credentials","Find out which credentials or licenses a program prepares students to earn.","Knowing the credentials available can help you understand how training connects to employment."],
+ ["Arrange a program visit or job shadow","Ask about visiting a program, meeting an instructor, or observing someone in a related career.","Seeing the work firsthand can help you decide whether the pathway is a good fit."]
+ ],
+ military:[
+ ["Research military branches and career fields","Compare branches, career specialties, service commitments, and eligibility requirements.","You can make a more informed decision about whether military service aligns with your goals."],
+ ["Speak with a trusted adult and official recruiter","Prepare questions and discuss your interests, expectations, and concerns with trusted adults; verify details with official sources.","Asking questions helps you understand commitments and options before making decisions."],
+ ["Learn about ASVAB preparation and requirements","Ask about the Armed Services Vocational Aptitude Battery (ASVAB), eligibility, and preparation resources.","Knowing what to expect gives you time to prepare and learn how scores relate to available career options."]
+ ]
+};
+var state={goal:"",barriers:[],saved:[],roadmap:[],confidence:"",reflection:""};
+var step=0;
+var steps=["goal","barriers","solutions","roadmap","review"];
+function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function getGoal(){return GOALS.find(g=>g.id===state.goal);}
+function getStrategy(key){var p=key.split(":");var b=DATA.find(x=>x.id===p[0]);return b&&b.s[Number(p[1])] ? {key,title:b.s[Number(p[1])][0],detail:b.s[Number(p[1])][1],help:b.s[Number(p[1])][2],category:b.n}:null;}
+function addItem(item){if(state.roadmap.some(x=>x.id===item.id))return;state.roadmap.push({...item,why:"",when:""});render();}
+function savedItems(){return state.saved.map(getStrategy).filter(Boolean).map(x=>({id:"saved-"+x.key,title:x.title,detail:x.detail,help:x.help,category:x.category}));}
+function boardItems(){var g=GOAL_OPTIONS[state.goal]||[];return COMMON.concat(g).map((x,i)=>({id:"board-"+i,title:x[0],detail:x[1],help:x[2],category:i<COMMON.length?"Useful for any pathway":getGoal().name+" pathway"}));}
+function render(){
+ var s=steps[step],el=document.getElementById("slide"),g=getGoal();
+ document.getElementById("progressBar").style.width=((step+1)/steps.length*100)+"%";
+ document.getElementById("stepLabel").textContent="Step "+(step+1)+" of "+steps.length;
+ document.getElementById("back").disabled=step===0;
+ document.getElementById("next").style.display=step===steps.length-1?"none":"inline-block";
+ document.getElementById("next").textContent=["Choose my goal →","Explore roadblocks →","Build my roadmap →","Review my roadmap →"][step]||"Next →";
+ if(s==="goal"){
+  el.innerHTML=`<section class="hero"><div class="road-icon">🛣️</div><div class="eyebrow">Your future is a journey</div><h1>Build a roadmap to what’s next.</h1><p class="lead">Every journey starts with a destination. Choose the path you are currently considering. You do not have to have every detail figured out—your goal can change as you learn more.</p></section><div class="panel"><div class="eyebrow">Step 1 · Pick your goal</div><h2>What are you thinking about after high school?</h2><p class="lead">Select the postsecondary or career pathway that best matches your interests right now.</p><div class="grid">${GOALS.map(x=>`<button class="choice" data-goal="${x.id}" aria-pressed="${state.goal===x.id}"><span class="emoji">${x.icon}</span><strong>${x.name}</strong><small>${x.desc}</small><small><em>${x.example}</em></small></button>`).join("")}</div><p class="footer-note">You can change your destination later. This is a starting point, not a final decision.</p></div>`;
+ }
+ if(s==="barriers"){
+  el.innerHTML=`<div class="eyebrow">Step 2 · Identify roadblocks</div><h2>What might slow you down?</h2><p class="lead">Choose any barriers that could make reaching your goal more challenging. These are the roadblocks your plan can help you navigate.</p><div class="goal-summary"><b>Your current destination:</b> ${g?g.icon+" "+esc(g.name):"Not selected"}</div><div class="grid">${DATA.map(x=>`<button class="choice" data-barrier="${x.id}" aria-pressed="${state.barriers.includes(x.id)}"><span class="emoji">${x.i}</span><strong>${esc(x.n)}</strong><small>${esc(x.b)}</small></button>`).join("")}</div><p class="footer-note">${state.barriers.length} roadblock(s) selected. Choose at least one to continue.</p>`;
+ }
+ if(s==="solutions"){
+  var chosen=DATA.filter(x=>state.barriers.includes(x.id));
+  el.innerHTML=`<div class="eyebrow">Step 3 · Explore possible routes</div><h2>Find strategies that could help you move forward.</h2><p class="lead">Explore the options connected to the roadblocks you selected. Flip each card to read how it could help, then save the ideas you may want to add to your roadmap.</p>${chosen.map(x=>`<section class="panel" style="margin:16px 0"><span class="pill">${x.i} ${esc(x.n)}</span><div class="cards">${x.s.map((y,i)=>{var key=x.id+":"+i,on=state.saved.includes(key);return `<article class="strategy"><b>${esc(y[0])}</b><div class="description">${esc(y[1])}</div><div class="help"><b>How it could help:</b> ${esc(y[2])}</div><div class="actions"><button class="btn ${on?"secondary":""}" data-save="${key}">${on?"★ Saved to my options":"☆ Save this option"}</button></div></article>`}).join("")}</div></section>`).join("")}<p class="footer-note">Saved options: ${state.saved.length}. You can use these alongside the shared and pathway-specific options in your roadmap.</p>`;
+ }
+ if(s==="roadmap"){
+  var saved=savedItems(),board=boardItems();
+  el.innerHTML=`<div class="eyebrow">Step 4 · Build your route</div><h2>Put your next steps on the road.</h2><p class="lead">Your roadmap combines the strategies you saved with a choice board of additional steps. Add the options that make sense, then arrange them in an order that works for you.</p><div class="goal-summary"><b>Destination:</b> ${g.icon} ${esc(g.name)} <span class="footer-note"> · Your plan can change as you learn more.</span></div><div class="notice">Drag an option into your roadmap, or select “＋ Add” (a keyboard- and touch-friendly alternative). Add only the steps that fit your situation.</div><div class="roadmap-layout"><div><div class="option-group"><h3>⭐ Your saved strategies</h3><div class="option-list">${saved.length?saved.map(optionHTML).join(""):'<p class="footer-note">No saved strategies yet. You can still build a roadmap using the choice board.</p>'}</div></div><div class="option-group"><h3>🧭 Choice board · Useful for any pathway</h3><div class="option-list">${board.slice(0,COMMON.length).map(optionHTML).join("")}</div></div><div class="option-group"><h3>${g.icon} Choice board · ${esc(g.name)}</h3><div class="option-list">${board.slice(COMMON.length).map(optionHTML).join("")}</div></div></div><section class="roadmap" id="dropzone"><div class="roadmap-head"><div><h3>🛣️ My Roadmap</h3><span class="drop-hint">Your steps, in the order you plan to take them</span></div><span class="pill">${state.roadmap.length} steps</span></div><div class="roadmap-items" id="roadItems">${state.roadmap.length?state.roadmap.map((x,i)=>roadItemHTML(x,i)).join(""):'<div class="empty">Your roadmap is ready for its first step.<br>Drag an option here or use ＋ Add.</div>'}</div></section></div><div class="reflection"><div><label for="confidence">How will taking these steps build your confidence?</label><textarea id="confidence" placeholder="These steps will help me believe I can...">${esc(state.confidence)}</textarea></div><div><label for="reflection">How will your roadmap help you feel more ready?</label><textarea id="reflection" placeholder="I will be more prepared because...">${esc(state.reflection)}</textarea></div></div>`;
+  setupDrop();
+ }
+ if(s==="review"){
+  el.innerHTML=`<div class="eyebrow">Step 5 · Your route forward</div><h2>Your journey map is ready.</h2><p class="lead">This is your personal route from where you are now to where you want to go. Each stop is a step you chose to help you move forward. You can adjust the route as your plans develop.</p>
+  <section class="map-poster" aria-label="Completed college and career roadmap">
+    <div class="map-topline"><div><div class="map-kicker">My college &amp; career journey map</div><div class="map-destination">${g?esc(g.name):"My next destination"}</div><div class="map-meta">A personal plan · ${state.roadmap.length} planned ${state.roadmap.length===1?"stop":"stops"}</div></div><div class="compass" aria-hidden="true">✥<small style="display:block;font-size:.55rem;font-weight:900">N</small></div></div>
+    <div class="route-map">
+      <div class="route-start"><span class="flag">📍</span><div><div class="route-label">You are here</div>Starting point</div></div>
+      ${state.roadmap.length?state.roadmap.map((x,i)=>`<div class="route-stop"><div class="route-pin">${i+1}</div><article class="route-card"><h3>${esc(x.title)}</h3><p>${esc(x.detail)}</p>${x.when?`<span class="route-when">◷ ${esc(x.when)}</span>`:""}${x.why?`<p class="route-why"><b>Why this stop matters:</b> ${esc(x.why)}</p>`:""}</article></div>`).join(""):'<p class="empty">No stops added yet. Return to the roadmap builder to add your first step.</p>'}
+      <div class="route-finish"><span class="flag">🏁</span><div><div class="route-label">Your destination</div>${g?esc(g.name):"My future goal"} <small style="display:block;font-weight:400;color:#536b57">One step at a time—you are on your way.</small></div></div>
+    </div>
+    <div class="map-reflections"><div class="map-reflection"><b>💪 How this route builds my confidence</b><p>${esc(state.confidence)||"Add your reflection in the roadmap builder."}</p></div><div class="map-reflection"><b>🧭 How this route helps me feel ready</b><p>${esc(state.reflection)||"Add your reflection in the roadmap builder."}</p></div></div>
+    <div class="map-legend"><span><i></i> Planned action / milestone</span><span><i></i> Destination</span><span>✥ Your route may change as you learn and grow.</span></div>
+  </section>
+  <div class="actions no-print" style="margin-top:18px"><button class="btn" id="print">Print / Save as PDF</button><button class="btn secondary" id="editRoad">Edit my roadmap</button><button class="btn secondary" id="reset">Start a new roadmap</button></div>`;
+ }
 }
-function next(){var n=document.getElementById("next");if(n.disabled||pos===deck.length-1)return;if(deck[pos].k==="pick")buildDeck();pos=Math.min(deck.length-1,pos+1);show()}
-function prev(){if(pos>0){if(deck[pos].k==="pick")buildDeck();pos--;show()}}
-document.getElementById("next").onclick=next;
-document.getElementById("prev").onclick=prev;
-document.addEventListener("keydown",function(e){if(e.key==="ArrowRight")next();if(e.key==="ArrowLeft")prev()});
-document.getElementById("slide").addEventListener("click",function(e){
- var chip=e.target.closest(".chip"),f=e.target.closest(".flip"),sv=e.target.closest(".save");
- if(chip){var id=chip.dataset.id,i=sel.indexOf(id);if(i>-1)sel.splice(i,1);else sel.push(id);
-  chip.setAttribute("aria-pressed",i===-1);document.getElementById("count").textContent=sel.length+" selected";
-  document.getElementById("next").disabled=sel.length===0;persist()}
- else if(f){f.classList.toggle("on")}
- else if(sv){var k=sv.dataset.key,j=saved.indexOf(k);if(j>-1)saved.splice(j,1);else saved.push(k);
-  var on=j===-1;sv.setAttribute("aria-pressed",on);sv.textContent=on?"★ Saved":"☆ Save idea";persist()}
- else if(e.target.id==="clear"){saved=[];persist();show()}
- else if(e.target.id==="restart"){sel=[];saved=[];persist();buildDeck();pos=0;show()}
+function optionHTML(x){return `<div class="drag-option" draggable="true" data-option="${esc(x.id)}"><div class="opt-text"><b>${esc(x.title)}</b><small>${esc(x.category)} · ${esc(x.detail)}</small></div><button class="add-btn" data-add="${esc(x.id)}">＋ Add</button></div>`;}
+function roadItemHTML(x,i){return `<article class="road-item" draggable="true" data-road="${esc(x.id)}"><span class="number">${i+1}</span><div><input aria-label="Roadmap step ${i+1} title" data-field="title" data-id="${esc(x.id)}" value="${esc(x.title)}"><small>${esc(x.detail)}</small><textarea aria-label="Why this step matters" data-field="why" data-id="${esc(x.id)}" placeholder="Why does this step matter to your goal?">${esc(x.why||"")}</textarea><input aria-label="When I will take this step" data-field="when" data-id="${esc(x.id)}" placeholder="When will I take this step? (e.g., this month)" value="${esc(x.when||"")}"></div><button class="remove" data-remove="${esc(x.id)}" aria-label="Remove step">✕</button></article>`;}
+function allOptions(){return savedItems().concat(boardItems());}
+function setupDrop(){
+ var zone=document.getElementById("dropzone");if(!zone)return;
+ document.querySelectorAll("[data-option]").forEach(el=>{
+  el.addEventListener("dragstart",e=>{e.dataTransfer.setData("text/plain",el.dataset.option);e.dataTransfer.effectAllowed="copy";});
+ });
+ zone.addEventListener("dragover",e=>{e.preventDefault();zone.classList.add("over");});
+ zone.addEventListener("dragleave",()=>zone.classList.remove("over"));
+ zone.addEventListener("drop",e=>{e.preventDefault();zone.classList.remove("over");var id=e.dataTransfer.getData("text/plain");var x=allOptions().find(o=>o.id===id);if(x)addItem(x);});
+ document.querySelectorAll("[data-road]").forEach(el=>{
+  el.addEventListener("dragstart",e=>{e.dataTransfer.setData("text/road",el.dataset.road);e.dataTransfer.effectAllowed="move";});
+  el.addEventListener("dragover",e=>e.preventDefault());
+  el.addEventListener("drop",e=>{e.preventDefault();var from=e.dataTransfer.getData("text/road");if(!from)return;var a=state.roadmap.findIndex(x=>x.id===from),b=state.roadmap.findIndex(x=>x.id===el.dataset.road);if(a<0||b<0||a===b)return;var moved=state.roadmap.splice(a,1)[0];state.roadmap.splice(b,0,moved);render();});
+ });
+}
+document.getElementById("slide").addEventListener("click",e=>{
+ var goal=e.target.closest("[data-goal]"),bar=e.target.closest("[data-barrier]"),save=e.target.closest("[data-save]"),add=e.target.closest("[data-add]");
+ if(goal){state.goal=goal.dataset.goal;render();}
+ else if(bar){var id=bar.dataset.barrier;state.barriers=state.barriers.includes(id)?state.barriers.filter(x=>x!==id):state.barriers.concat(id);render();}
+ else if(save){var key=save.dataset.save;state.saved=state.saved.includes(key)?state.saved.filter(x=>x!==key):state.saved.concat(key);render();}
+ else if(add){var x=allOptions().find(o=>o.id===add.dataset.add);if(x)addItem(x);}
+ else if(e.target.closest("[data-remove]")){var id=e.target.closest("[data-remove]").dataset.remove;state.roadmap=state.roadmap.filter(x=>x.id!==id);render();}
+ else if(e.target.id==="print")window.print();
+ else if(e.target.id==="editRoad"){step=3;render();}
+ else if(e.target.id==="reset"){if(confirm("Start a new roadmap? This will clear your current choices and plan.")){state={goal:"",barriers:[],saved:[],roadmap:[],confidence:"",reflection:""};step=0;render();}}
 });
-var sx=null;
-document.addEventListener("touchstart",function(e){sx=e.touches[0].clientX},{passive:true});
-document.addEventListener("touchend",function(e){if(sx===null)return;var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>70){dx<0?next():prev()}sx=null},{passive:true});
-buildDeck();show();
+document.getElementById("slide").addEventListener("input",e=>{
+ var field=e.target.dataset.field;
+ if(field){var item=state.roadmap.find(x=>x.id===e.target.dataset.id);if(item)item[field]=e.target.value;}
+ if(e.target.id==="confidence")state.confidence=e.target.value;
+ if(e.target.id==="reflection")state.reflection=e.target.value;
+});
+document.getElementById("next").onclick=()=>{
+ if(step===0&&!state.goal){alert("Choose a goal to continue.");return;}
+ if(step===1&&!state.barriers.length){alert("Choose at least one roadblock to continue.");return;}
+ if(step===2&&state.saved.length===0){if(!confirm("You have not saved any strategies. Continue to the roadmap and use the choice board instead?"))return;}
+ if(step===3&&state.roadmap.length===0){if(!confirm("Your roadmap is empty. Continue to review, or go back and add steps?"))return;}
+ step=Math.min(steps.length-1,step+1);render();
+};
+document.getElementById("back").onclick=()=>{step=Math.max(0,step-1);render();};
+render();
 </script>
 </body>
 </html>
